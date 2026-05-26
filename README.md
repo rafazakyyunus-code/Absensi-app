@@ -218,4 +218,5 @@ Project ini menggunakan lisensi MIT.
 
 # 👨‍💻 Developer
 
-Made with ❤️ using Laravel 11 & React JS.
+Made with Rafa Zaky Yunus
+
