@@ -1,0 +1,396 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --smooth-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --smooth-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+button,
+a,
+input {
+    will-change: transform;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* =========================================================
+   INPUT DATE
+========================================================= */
+
+input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(1) opacity(0.5);
+}
+
+/* =========================================================
+   GPU OPTIMIZATION
+========================================================= */
+
+.gpu-layer {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* =========================================================
+   FLOATING BACKGROUND
+========================================================= */
+
+@keyframes ultraFloating {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: translate3d(35px, -30px, 0) rotate(2deg) scale(1.04);
+    }
+
+    50% {
+        transform: translate3d(-20px, 20px, 0) rotate(-2deg) scale(0.96);
+    }
+
+    75% {
+        transform: translate3d(20px, 30px, 0) rotate(1deg) scale(1.02);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+}
+
+.animate-ultraFloating {
+    animation: ultraFloating 22s ease-in-out infinite;
+}
+
+/* =========================================================
+   FLOATING CARD
+========================================================= */
+
+@keyframes floatingCard {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-floatingCard {
+    animation: floatingCard 6s ease-in-out infinite;
+}
+
+/* =========================================================
+   SCREEN REVEAL
+========================================================= */
+
+@keyframes screenReveal {
+    0% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        visibility: hidden;
+    }
+}
+
+.animate-screenReveal {
+    animation: screenReveal 1.8s
+        cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* =========================================================
+   CINEMATIC LIGHT
+========================================================= */
+
+@keyframes cinematicLight {
+    0% {
+        transform: translateX(-150%) rotate(12deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(350%) rotate(12deg);
+        opacity: 0;
+    }
+}
+
+.animate-cinematicLight {
+    animation: cinematicLight 9s linear infinite;
+}
+
+/* =========================================================
+   PAGE ENTER
+========================================================= */
+
+@keyframes premiumPageEnter {
+    0% {
+        opacity: 0;
+        transform: scale(1.04) translateY(30px);
+        filter: blur(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}
+
+.animate-premiumPageEnter {
+    animation: premiumPageEnter 1.6s
+        var(--smooth-ease) forwards;
+}
+
+/* =========================================================
+   SMOOTH FADE UP
+========================================================= */
+
+@keyframes smoothFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(45px) scale(0.96);
+        filter: blur(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.animate-smoothFadeUp {
+    animation: smoothFadeUp 1.3s
+        var(--smooth-ease) forwards;
+}
+
+/* =========================================================
+   LEFT / RIGHT SLIDE
+========================================================= */
+
+@keyframes fadeLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-70px);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeRight {
+    0% {
+        opacity: 0;
+        transform: translateX(70px);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+.animate-fadeLeft {
+    animation: fadeLeft 1.2s
+        var(--smooth-ease) forwards;
+}
+
+.animate-fadeRight {
+    animation: fadeRight 1.2s
+        var(--smooth-ease) forwards;
+}
+
+/* =========================================================
+   LUXURY GLOW
+========================================================= */
+
+@keyframes luxuryGlow {
+    0% {
+        opacity: 0.45;
+        filter: blur(80px);
+    }
+
+    50% {
+        opacity: 0.9;
+        filter: blur(120px);
+    }
+
+    100% {
+        opacity: 0.45;
+        filter: blur(80px);
+    }
+}
+
+.animate-luxuryGlow {
+    animation: luxuryGlow 12s ease-in-out infinite;
+}
+
+/* =========================================================
+   SOFT ZOOM
+========================================================= */
+
+@keyframes softZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-softZoom {
+    animation: softZoom 12s ease-in-out infinite;
+}
+
+/* =========================================================
+   GLASS EFFECT
+========================================================= */
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   PREMIUM HOVER
+========================================================= */
+
+.premium-hover {
+    transition:
+        transform 0.5s var(--smooth-ease),
+        box-shadow 0.5s var(--smooth-ease),
+        border-color 0.5s ease,
+        background 0.5s ease;
+}
+
+.premium-hover:hover {
+    transform: translateY(-6px) scale(1.01);
+
+    box-shadow:
+        0 10px 40px rgba(124, 92, 252, 0.18),
+        0 0 80px rgba(124, 92, 252, 0.08);
+}
+
+/* =========================================================
+   SHIMMER EFFECT
+========================================================= */
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-120%);
+    }
+
+    100% {
+        transform: translateX(320%);
+    }
+}
+
+.animate-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.animate-shimmer::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+    );
+
+    transform: translateX(-120%);
+
+    animation: shimmer 5s linear infinite;
+}
+
+/* =========================================================
+   ANIMATION DELAYS
+========================================================= */
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+.delay-600 {
+    animation-delay: 0.6s;
+}
+
+.delay-800 {
+    animation-delay: 0.8s;
+}
+
+.delay-1000 {
+    animation-delay: 1s;
+}
